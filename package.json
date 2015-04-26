@@ -1,0 +1,25 @@
+{
+	"name": "WorkerClientServer",
+	"version": "0.0.1",
+	"description": "WorkerClient/WorkerServer",
+	"keywords": ["web", "worker"],
+	"main": "Nanika.js",
+	"scripts": {
+		"test": "mocha"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"coffee-script": ">= 1.9.0",
+		"codo": ""
+	},
+	"author": {
+		"name": "narazaka",
+		"url": "http://narazaka.net/"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Ikagaka/WorkerClientServer.git"
+	}
+}
