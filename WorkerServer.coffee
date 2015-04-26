@@ -10,3 +10,5 @@ class WorkerServer
 			, (error) ->
 				self.postMessage({id: id, error: error})
 			return
+
+@WorkerServer = WorkerServer

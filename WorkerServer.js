@@ -30,4 +30,6 @@
 
   })();
 
+  this.WorkerServer = WorkerServer;
+
 }).call(this);

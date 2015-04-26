@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"description": "WorkerClient/WorkerServer",
 	"keywords": ["web", "worker"],
-	"main": "Nanika.js",
+	"main": "WorkerClient.js",
 	"scripts": {
 		"test": "mocha"
 	},
@@ -20,6 +20,6 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Ikagaka/WorkerClientServer.git"
+		"url": "https://github.com/Narazaka/WorkerClientServer.git"
 	}
 }

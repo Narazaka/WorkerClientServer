@@ -1,4 +1,4 @@
-class WorkerClient
+class @WorkerClient
 
 	# @param [Worker] worker the server worker
 	constructor: (@worker)->

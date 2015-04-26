@@ -1,4 +1,4 @@
-class InlineWorkerClient extends URLWorkerClient
+class @InlineWorkerClient extends @URLWorkerClient
 
 	# @param [string] worker_code the server worker code
 	# @param [Boolean] revoke_url_on_terminate revoke the code url when terminate()
