@@ -1,6 +1,6 @@
 class WorkerServer
 	constructor: (@handlers) ->
-		self.addEventListener "message", (event)->
+		self.addEventListener "message", (event) =>
 			id = event.data.id
 			name = event.data.name
 			contents = event.data.contents

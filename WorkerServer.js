@@ -5,25 +5,27 @@
   WorkerServer = (function() {
     function WorkerServer(handlers) {
       this.handlers = handlers;
-      self.addEventListener("message", function(event) {
-        var contents, id, name;
-        id = event.data.id;
-        name = event.data.name;
-        contents = event.data.contents;
-        this.handlers[name](contents).then(function(arg) {
-          var contents, transferable;
-          contents = arg.contents, transferable = arg.transferable;
-          return self.postMessage({
-            id: id,
-            contents: contents
-          }, transferable);
-        }, function(error) {
-          return self.postMessage({
-            id: id,
-            error: error
+      self.addEventListener("message", (function(_this) {
+        return function(event) {
+          var contents, id, name;
+          id = event.data.id;
+          name = event.data.name;
+          contents = event.data.contents;
+          _this.handlers[name](contents).then(function(arg) {
+            var contents, transferable;
+            contents = arg.contents, transferable = arg.transferable;
+            return self.postMessage({
+              id: id,
+              contents: contents
+            }, transferable);
+          }, function(error) {
+            return self.postMessage({
+              id: id,
+              error: error
+            });
           });
-        });
-      });
+        };
+      })(this));
     }
 
     return WorkerServer;
