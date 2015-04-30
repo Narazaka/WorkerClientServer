@@ -59,6 +59,7 @@ var server = new WorkerServer(handlers);
 
 // or
 
+var worker_url = URL.createObjectURL(new Blob([worker_code], {type:&quot;text/javascript&quot;}));
 var client = new URLWorkerClient(worker_url, true);
 
 // or
@@ -73,11 +74,11 @@ var data = new Uint8Array(1000);
 client.request(&quot;bigdata&quot;, {boo: data}, [data.buffer]).then(function(contents){
   console.log(contents.baz);
 }, function(error){...});
-</code></pre><h2 id="api">API</h2><p>read the doc/</p><h2 id="license">License</h2><p>This is released under <a href="http://narazaka.net/license/MIT?2015">MIT License</a>.</p>
+</code></pre><h2 id="api">API</h2><p>read the doc/ or *.coffee docs</p><h2 id="license">License</h2><p>This is released under <a href="http://narazaka.net/license/MIT?2015">MIT License</a>.</p>
       </div>
     </div>
     <div id='footer'>
-  April 27, 15 00:08:04 by
+  May 01, 15 03:25:36 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>

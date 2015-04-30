@@ -1,6 +1,6 @@
 {
 	"name": "WorkerClientServer",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "WorkerClient/WorkerServer",
 	"keywords": ["web", "worker"],
 	"main": "WorkerClient.js",

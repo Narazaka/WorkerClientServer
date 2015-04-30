@@ -1,4 +1,5 @@
 class WorkerServer
+	# @param [Hash<Function>] handlers event handler functions
 	constructor: (@handlers) ->
 		self.addEventListener "message", (event) =>
 			id = event.data.id
