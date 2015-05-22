@@ -13,7 +13,7 @@ class @WorkerClient
 	# @param [Object] contents any value that will be passed to the server worker
 	# @param [Array<Transferable>] transferable Transferable objects in the contents
 	# @return [Promise] (resolve) any value that has been passed from the server worker / (reject) if response has error
-	request: (name, contents=null, transferable=null) ->
+	request: (name, contents=null, transferable=undefined) ->
 		id = @request_id++
 		new Promise (resolve, reject) =>
 			@callbacks[id] = (error, contents) -> if error? then reject error else resolve contents
