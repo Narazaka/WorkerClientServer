@@ -85,6 +85,18 @@ Usage
       console.log(contents); // "databar"
     }, function(error){...});
 
+### single file worker
+
+    var SingleFileWorkerRunner = function(){...}; // SingleFileWorkerRunner code
+    var worker_code = "";
+    worker_code += "var WorkerServer = function(){...};"; // WorkerServer code string
+    worker_code += "var w = new WorkerServer(...);"; // your server code string
+    
+    SingleFileWorkerRunner.run(worker_code, function(make_worker){
+      var client = new WorkerClient(make_worker()); // your client code
+      ...
+    }, ('fork' || 'webworker' || null));
+
 API
 --------------------------
 
