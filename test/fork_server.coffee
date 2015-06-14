@@ -8,4 +8,4 @@ handlers =
       else
         reject 'ng'
 
-server = new WorkerServer(handlers, 'fork')
+server = new WorkerServer(handlers)

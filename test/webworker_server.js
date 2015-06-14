@@ -22,6 +22,6 @@
     }
   };
 
-  server = new WorkerServer(handlers, 'webworker');
+  server = new WorkerServer(handlers);
 
 }).call(this);

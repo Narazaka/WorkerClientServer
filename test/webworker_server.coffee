@@ -9,4 +9,4 @@ handlers =
       else
         reject 'ng'
 
-server = new WorkerServer(handlers, 'webworker')
+server = new WorkerServer(handlers)

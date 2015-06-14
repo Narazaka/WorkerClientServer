@@ -2,10 +2,10 @@
 (function() {
   var WorkerClient, chai, chaiAsPromised, child_process, expect, sinon;
 
-  chai = this.chai;
-
-  if (chai == null) {
+  if (typeof require !== "undefined" && require !== null) {
     chai = require('chai');
+  } else {
+    chai = this.chai;
   }
 
   chai.should();

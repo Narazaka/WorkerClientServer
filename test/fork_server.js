@@ -20,6 +20,6 @@
     }
   };
 
-  server = new WorkerServer(handlers, 'fork');
+  server = new WorkerServer(handlers);
 
 }).call(this);
