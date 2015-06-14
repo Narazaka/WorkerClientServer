@@ -36,7 +36,7 @@
     beforeEach(function() {
       var worker;
       worker = child_process.fork('./fork_server.js');
-      return client = new WorkerClient(worker, null, 'fork');
+      return client = new WorkerClient(worker);
     });
     return it('should work', function() {
       client.request('test1', ['test', 1]).should.eventually.equal('ok');

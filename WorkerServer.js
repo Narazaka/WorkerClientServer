@@ -3,11 +3,18 @@
   this.WorkerServer = (function() {
     function WorkerServer(handlers, worker_type) {
       this.handlers = handlers;
-      this.worker_type = worker_type != null ? worker_type : (typeof process !== "undefined" && process !== null ? 'fork' : 'webworker');
+      this.worker_type = worker_type;
       if (this.worker_type === "webworker") {
         self.addEventListener("message", this._handler_webworker.bind(this));
-      } else {
+      } else if (this.worker_type === 'fork') {
         process.on("message", this._handler_fork.bind(this));
+      } else {
+        if (typeof self !== "undefined" && self !== null) {
+          self.addEventListener("message", this._handler_webworker.bind(this));
+        }
+        if (typeof process !== "undefined" && process !== null) {
+          process.on("message", this._handler_fork.bind(this));
+        }
       }
     }
 

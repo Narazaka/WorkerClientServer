@@ -1,7 +1,9 @@
 class @WorkerClient
 
   # @param [Worker] worker the server worker
-  constructor: (@worker, @worker_error_handler=@_default_worker_error_handler, @worker_type=(if process? then 'fork' else 'webworker'))->
+  # @param [Function] worker_error_handler error handler function that will called on worker basic error with error event
+  constructor: (@worker, @worker_error_handler=@_default_worker_error_handler)->
+    @worker_type = if Worker? and @worker instanceof Worker then 'webworker' else 'fork'
     if @worker_type == "webworker"
       @worker.addEventListener "error", @worker_error_handler
       @worker.addEventListener "message", @_response_webworker.bind @

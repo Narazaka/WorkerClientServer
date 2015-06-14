@@ -6,10 +6,10 @@
   this.URLWorkerClient = (function(superClass) {
     extend(URLWorkerClient, superClass);
 
-    function URLWorkerClient(url, revoke_url_on_terminate) {
+    function URLWorkerClient(url, revoke_url_on_terminate, worker_error_handler) {
       this.url = url;
       this.revoke_url_on_terminate = revoke_url_on_terminate != null ? revoke_url_on_terminate : false;
-      URLWorkerClient.__super__.constructor.call(this, new Worker(this.url));
+      URLWorkerClient.__super__.constructor.call(this, new Worker(this.url, worker_error_handler));
     }
 
     URLWorkerClient.prototype.terminate = function() {

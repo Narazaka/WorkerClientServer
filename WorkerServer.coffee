@@ -1,6 +1,7 @@
 class @WorkerServer
   # @param [Hash<Function>] handlers event handler functions
-  constructor: (@handlers, @worker_type=null) ->
+  # @param [string] worker_type 'webworker', 'fork' or null (detect)
+  constructor: (@handlers, @worker_type) ->
     if @worker_type == "webworker"
       self.addEventListener "message", @_handler_webworker.bind @
     else if @worker_type == 'fork'

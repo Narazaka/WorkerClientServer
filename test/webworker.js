@@ -22,7 +22,7 @@
     beforeEach(function() {
       var worker;
       worker = new Worker('./webworker_server.js');
-      return client = new WorkerClient(worker, null, 'webworker');
+      return client = new WorkerClient(worker);
     });
     return it('should work', function() {
       client.request('test1', ['test', 1]).should.eventually.equal('ok');

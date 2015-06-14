@@ -6,7 +6,7 @@
   this.InlineWorkerClient = (function(superClass) {
     extend(InlineWorkerClient, superClass);
 
-    function InlineWorkerClient(worker_code, revoke_url_on_terminate) {
+    function InlineWorkerClient(worker_code, revoke_url_on_terminate, worker_error_handler) {
       var url;
       if (revoke_url_on_terminate == null) {
         revoke_url_on_terminate = false;
@@ -14,7 +14,7 @@
       url = URL.createObjectURL(new Blob([worker_code], {
         type: "text/javascript"
       }));
-      InlineWorkerClient.__super__.constructor.call(this, url, revoke_url_on_terminate);
+      InlineWorkerClient.__super__.constructor.call(this, url, revoke_url_on_terminate, worker_error_handler);
     }
 
     return InlineWorkerClient;
