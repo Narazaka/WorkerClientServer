@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <!--script(src="../node_modules/bluebird/js/browser/bluebird.js")-->
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/chai-as-promised/lib/chai-as-promised.js"></script>
+    <script src="../node_modules/sinon/pkg/sinon.js"></script>
+    <script src="../WorkerClient.js"></script>
+    <script>mocha.ui('bdd');</script>
+    <script src="./fork.js"></script>
+    <script>
+      $(function(){
+       mocha.checkLeaks();
+       //mocha.globals(['jQuery']);
+       if(typeof mochaPhantomJS != "undefined"){
+        mochaPhantomJS.run();
+       }else{
+        mocha.run();
+       }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+  </body>
+</html>

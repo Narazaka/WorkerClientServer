@@ -1,6 +1,6 @@
 {
-	"name": "WorkerClientServer",
-	"version": "0.0.3",
+	"name": "worker-client-server",
+	"version": "0.1.0",
 	"description": "WorkerClient/WorkerServer",
 	"keywords": ["web", "worker"],
 	"main": "WorkerClient.js",
@@ -11,7 +11,13 @@
 	},
 	"devDependencies": {
 		"coffee-script": ">= 1.9.0",
-		"codo": ""
+		"codo": "",
+		"jade": "",
+		"bluebird": "",
+		"mocha": "",
+		"chai": "",
+		"chai-as-promised": "",
+		"sinon": ""
 	},
 	"author": {
 		"name": "narazaka",

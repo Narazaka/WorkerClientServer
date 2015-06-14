@@ -34,8 +34,10 @@
         </p>
       </nav>
       <div id='filecontents'>
-        <h1 id="workerclientserver-workerclient-workerserver">WorkerClientServer - WorkerClient/WorkerServer</h1><p>WebWorker client/server</p><h2 id="installation">Installation</h2><p>bower install WorkerClientServer</p><h2 id="usage">Usage</h2>
-<h3 id="worker-script">worker script</h3>
+        <h1 id="workerclientserver-workerclient-workerserver">WorkerClientServer - WorkerClient/WorkerServer</h1><p>WebWorker client/server</p><h2 id="installation">Installation</h2><p>npm install WorkerClientServer
+bower install WorkerClientServer</p><h2 id="usage">Usage</h2>
+<h3 id="browser">Browser</h3>
+<h4 id="worker-script">worker script</h4>
 <pre><code>importScripts(&#39;WorkerServer.js&#39;);
 
 var handlers = {
@@ -54,8 +56,9 @@ var handlers = {
 };
 
 var server = new WorkerServer(handlers);
-</code></pre><h3 id="browser-script">browser script</h3>
-<pre><code>var client = new WorkerClient(worker);
+</code></pre><h4 id="browser-script">browser script</h4>
+<pre><code>var worker = new Worker(&#39;./worker.js&#39;);
+var client = new WorkerClient(worker);
 
 // or
 
@@ -74,11 +77,33 @@ var data = new Uint8Array(1000);
 client.request(&quot;bigdata&quot;, {boo: data}, [data.buffer]).then(function(contents){
   console.log(contents.baz);
 }, function(error){...});
+</code></pre><h3 id="nw-js-with-child_process-fork-">nw.js with <code>child_process.fork()</code></h3>
+<h4 id="worker-script">worker script</h4>
+<pre><code>var WorkerServer = require(&#39;WorkerServer.js&#39;);
+
+var handlers = {
+  foo: function(value){
+    return new Promise(function(resolve, reject){
+      resolve {contents: value + &quot;bar&quot;};
+    });
+  },
+};
+
+var server = new WorkerServer(handlers);
+</code></pre><h4 id="browser-script">browser script</h4>
+<pre><code>var child_process = require(&#39;child_process&#39;);
+
+var worker = child_process.fork(&#39;./worker.js&#39;);
+var client = new WorkerClient(worker);
+
+client.request(&quot;foo&quot;, &quot;data&quot;).then(function(contents){
+  console.log(contents); // &quot;databar&quot;
+}, function(error){...});
 </code></pre><h2 id="api">API</h2><p>read the doc/ or *.coffee docs</p><h2 id="license">License</h2><p>This is released under <a href="http://narazaka.net/license/MIT?2015">MIT License</a>.</p>
       </div>
     </div>
     <div id='footer'>
-  May 01, 15 03:25:36 by
+  June 14, 15 10:15:17 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>

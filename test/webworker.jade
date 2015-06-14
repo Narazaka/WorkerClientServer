@@ -1,0 +1,27 @@
+doctype html
+html
+	head
+		meta(charset="UTF-8")
+		link(rel="stylesheet", href="../node_modules/mocha/mocha.css")
+		script(src="http://code.jquery.com/jquery.min.js")
+		script(src="../node_modules/bluebird/js/browser/bluebird.js")
+		script(src="../node_modules/mocha/mocha.js")
+		script(src="../node_modules/chai/chai.js")
+		script(src="../node_modules/chai-as-promised/lib/chai-as-promised.js")
+		script(src="../node_modules/sinon/pkg/sinon.js")
+		script(src="../WorkerClient.js")
+		script.
+			mocha.ui('bdd');
+		script(src="./webworker.js")
+		script.
+			$(function(){
+				mocha.checkLeaks();
+				//mocha.globals(['jQuery']);
+				if(typeof mochaPhantomJS != "undefined"){
+					mochaPhantomJS.run();
+				}else{
+					mocha.run();
+				}
+			});
+	body
+		#mocha

@@ -6,12 +6,14 @@ WebWorker client/server
 Installation
 --------------------------
 
-bower install WorkerClientServer
+    bower install WorkerClientServer
 
 Usage
 --------------------------
 
-### worker script
+### Browser
+
+#### worker script
 
     importScripts('WorkerServer.js');
     
@@ -32,8 +34,9 @@ Usage
     
     var server = new WorkerServer(handlers);
 
-### browser script
+#### browser script
 
+    var worker = new Worker('./worker.js');
     var client = new WorkerClient(worker);
     
     // or
@@ -52,6 +55,34 @@ Usage
     var data = new Uint8Array(1000);
     client.request("bigdata", {boo: data}, [data.buffer]).then(function(contents){
       console.log(contents.baz);
+    }, function(error){...});
+
+### node.js or nw.js with `child_process.fork()`
+
+#### worker script
+
+    var WorkerServer = require('WorkerServer.js');
+    
+    var handlers = {
+      foo: function(value){
+        return new Promise(function(resolve, reject){
+          resolve {contents: value + "bar"};
+        });
+      },
+    };
+    
+    var server = new WorkerServer(handlers);
+
+#### main/browser script
+
+    var WorkerClient = require('WorkerClient.js');
+    var child_process = require('child_process');
+    
+    var worker = child_process.fork('./worker.js');
+    var client = new WorkerClient(worker);
+    
+    client.request("foo", "data").then(function(contents){
+      console.log(contents); // "databar"
     }, function(error){...});
 
 API
