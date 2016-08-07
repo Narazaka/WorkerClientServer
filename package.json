@@ -1,31 +1,33 @@
 {
-	"name": "worker-client-server",
-	"version": "0.2.3",
-	"description": "WorkerClient/WorkerServer",
-	"keywords": ["web", "worker"],
-	"main": "WorkerClient.js",
-	"scripts": {
-		"test": "mocha"
-	},
-	"dependencies": {
-	},
-	"devDependencies": {
-		"coffee-script": ">= 1.9.0",
-		"codo": "",
-		"jade": "",
-		"bluebird": "",
-		"mocha": "",
-		"chai": "",
-		"chai-as-promised": "",
-		"sinon": ""
-	},
-	"author": {
-		"name": "narazaka",
-		"url": "http://narazaka.net/"
-	},
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Narazaka/WorkerClientServer.git"
-	}
+  "name": "worker-client-server",
+  "version": "0.3.0",
+  "description": "WorkerClient/WorkerServer",
+  "keywords": [
+    "web",
+    "worker"
+  ],
+  "main": "WorkerClient.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": ">= 1.9.0",
+    "codo": "",
+    "jade": "",
+    "bluebird": "",
+    "mocha": "",
+    "chai": "",
+    "chai-as-promised": "",
+    "sinon": ""
+  },
+  "author": {
+    "name": "narazaka",
+    "url": "http://narazaka.net/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Narazaka/WorkerClientServer.git"
+  }
 }
