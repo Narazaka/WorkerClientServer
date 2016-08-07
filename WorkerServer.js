@@ -68,6 +68,8 @@
     module.exports = WorkerServer;
   } else if (typeof window !== "undefined" && window !== null) {
     window.WorkerServer = WorkerServer;
+  } else if (this) {
+    this.WorkerServer = WorkerServer;
   }
 
 }).call(this);

@@ -38,3 +38,5 @@ if module?.exports?
   module.exports = WorkerServer
 else if window?
   window.WorkerServer = WorkerServer
+else if @
+  @WorkerServer = WorkerServer
