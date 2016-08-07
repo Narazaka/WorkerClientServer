@@ -29,5 +29,5 @@ class SingleFileWorkerRunner
 
 if module?.exports?
   module.exports = SingleFileWorkerRunner
-else
-  @SingleFileWorkerRunner = SingleFileWorkerRunner
+else if window?
+  window.SingleFileWorkerRunner = SingleFileWorkerRunner

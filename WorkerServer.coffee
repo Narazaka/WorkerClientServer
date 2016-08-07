@@ -1,4 +1,4 @@
-class @WorkerServer
+class WorkerServer
   # @param [Hash<Function>] handlers event handler functions
   # @param [string] worker_type 'webworker', 'fork' or null (detect)
   constructor: (@handlers, @worker_type) ->
@@ -35,4 +35,6 @@ class @WorkerServer
     return
 
 if module?.exports?
-  module.exports = @WorkerServer
+  module.exports = WorkerServer
+else if window?
+  window.WorkerServer = WorkerServer

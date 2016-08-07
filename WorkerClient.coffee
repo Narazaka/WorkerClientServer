@@ -1,4 +1,4 @@
-class @WorkerClient
+class WorkerClient
 
   # @param [Worker] worker the server worker
   # @param [Function] worker_error_handler error handler function that will called on worker basic error with error event
@@ -60,4 +60,6 @@ class @WorkerClient
         @worker.kill()
 
 if module?.exports?
-  module.exports = @WorkerClient
+  module.exports = WorkerClient
+else if window?
+  window.WorkerClient = WorkerClient

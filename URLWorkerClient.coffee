@@ -1,4 +1,4 @@
-class @URLWorkerClient extends @WorkerClient
+class URLWorkerClient extends WorkerClient
 
   # @param [URL] url the server worker code url
   # @param [Boolean] revoke_url_on_terminate revoke the code url when terminate()
@@ -15,3 +15,6 @@ class @URLWorkerClient extends @WorkerClient
         URL.revokeObjectURL(@url)
     else
       super()
+
+if window?
+  window.URLWorkerClient = URLWorkerClient
